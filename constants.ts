@@ -14,14 +14,14 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const PROFILE = {
   firstName: "MAHMOOD",
   lastName: "KHAN",
-  subtitle: "AI ENTHUSIAST",
+  subtitle: "CYBERSECURITY ANALYST",
   intro: "HI, I AM"
 };
 
 export const ABOUT_CONTENT = {
-  heading: "CREATIVE TECHNOLOGIST",
-  description: "Curious and passionate, I've always been interested in how visuals can shape the way people feel and think. Over time, that curiosity led me to graphic design and AI, a field where creativity meets problem-solving.",
-  description2: "I love exploring how colors, typography, and layout can communicate ideas and emotions clearly and beautifully. Through this portfolio, I aim to show my approach as a designer who values clarity, balance, and meaning in every project."
+  heading: "DIGITAL GUARDIAN",
+  description: "I am a Cybersecurity Student with a passion for offensive security and threat hunting. My journey involves breaking systems to build them stronger, analyzing malware behavior, and securing critical network infrastructures.",
+  description2: "From solving CTF challenges to auditing web applications, I focus on the intersection of cryptography, network defense, and ethical hacking. My goal is to ensure data integrity and confidentiality in an increasingly hostile digital landscape."
 };
 
 export const EDUCATION_DATA = [
@@ -29,7 +29,7 @@ export const EDUCATION_DATA = [
     period: "2023 - Present",
     institution: "Ahmad Dahlan University,",
     location: "Yogyakarta",
-    degree: "Computer Science"
+    degree: "Informatics Engineering (Cyber Security Focus)"
   }
 ];
 
@@ -37,83 +37,83 @@ export const EXPERIENCE_DATA = [
   {
     period: "2020 - 2023",
     company: "PLTU Cilacap",
-    role: "Multimedia Staff",
+    role: "IT Network Support Intern",
     current: false
   },
   {
     period: "2024",
     company: "SE KUBI UAD",
-    role: "Graphic Designer",
+    role: "Junior System Administrator",
     current: false
   },
   {
     period: "2025 - Present",
     company: "Publika Labs",
-    role: "Social Media Specialist",
+    role: "Security Analyst",
     current: true
   },
   {
     period: "2025 - Present",
     company: "YOUP Creative",
-    role: "Social Media Manager",
+    role: "Web Security Consultant",
     current: true
   }
 ];
 
 export const SKILLS_DATA = [
   {
-    category: "GENERATIVE AI",
-    icon: "brain",
-    items: ["LLMs", "RAG Pipelines", "Stable Diffusion", "Prompt Engineering", "Gemini API", "LangChain"]
-  },
-  {
-    category: "FULL STACK",
-    icon: "code",
-    items: ["React", "TypeScript", "Node.js", "Python", "FastAPI", "Tailwind CSS"]
-  },
-  {
-    category: "DATA SCIENCE",
-    icon: "database",
-    items: ["TensorFlow", "PyTorch", "Pandas", "Computer Vision", "Scikit-learn", "NLP"]
-  },
-  {
-    category: "TOOLS & OPS",
+    category: "OFFENSIVE SEC",
     icon: "terminal",
-    items: ["Docker", "Git", "AWS", "Linux", "Jupyter", "VS Code"]
+    items: ["Burp Suite", "Metasploit", "Nmap", "Kali Linux", "SQLMap", "Hydra"]
+  },
+  {
+    category: "DEFENSIVE OPS",
+    icon: "database",
+    items: ["SIEM (Wazuh)", "Wireshark", "Snort IDS", "Firewalls", "Incident Response", "Splunk"]
+  },
+  {
+    category: "SCRIPTING",
+    icon: "code",
+    items: ["Python", "Bash", "PowerShell", "C++", "Assembly", "Go"]
+  },
+  {
+    category: "INFRASTRUCTURE",
+    icon: "brain",
+    items: ["Linux Hardening", "Active Directory", "Docker", "AWS Security", "TCP/IP Analysis", "VPNs"]
   }
 ];
 
 export const PROJECTS_DATA: Project[] = [
   {
-    title: "NEURAL NEXUS",
-    description: "An autonomous agent swarm designed for real-time market analysis and prediction using multi-modal LLM architecture.",
-    tags: ["Python", "LangChain", "OpenAI", "React"],
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop",
-    links: { demo: "#", code: "#" },
-    featured: true
-  },
-  {
-    title: "SYNTH VISION",
-    description: "Computer vision pipeline capable of detecting anomalies in manufacturing lines with 99.8% accuracy.",
-    tags: ["PyTorch", "YOLOv8", "FastAPI", "Docker"],
+    title: "PACKET SENTINEL",
+    description: "A Python-based network traffic analyzer and intrusion detection system capable of flagging suspicious TCP/UDP signatures in real-time.",
+    tags: ["Python", "Scapy", "Wireshark", "Socket Programming"],
     image: "https://images.unsplash.com/photo-1558494949-ef253b29427b?q=80&w=800&auto=format&fit=crop",
     links: { demo: "#", code: "#" },
     featured: true
   },
   {
-    title: "ECHO PROTOCOL",
-    description: "A decentralized communication bridge connecting legacy banking systems with blockchain interfaces.",
-    tags: ["Solidity", "Node.js", "Web3.js", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop",
+    title: "SECURE VAULT",
+    description: "End-to-end encrypted file sharing platform implementing AES-256 and RSA encryption standards for secure data exchange.",
+    tags: ["Cryptography", "Node.js", "OpenSSL", "React"],
+    image: "https://images.unsplash.com/photo-1614064641938-3bcee52942c9?q=80&w=800&auto=format&fit=crop",
+    links: { demo: "#", code: "#" },
+    featured: true
+  },
+  {
+    title: "VULN SCANNER",
+    description: "Automated vulnerability scanner that checks web applications for OWASP Top 10 flaws like SQL Injection and XSS.",
+    tags: ["Bash", "Python", "OWASP", "Automation"],
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop",
     links: { demo: "#", code: "#" }
   },
   {
-    title: "VOID RUNNER",
-    description: "Procedurally generated 3D web experience exploring infinite digital landscapes using WebGL.",
-    tags: ["Three.js", "WebGL", "GLSL", "Typescript"],
-    image: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=800&auto=format&fit=crop",
+    title: "KEYLOGGER HUNTER",
+    description: "A memory forensics tool designed to detect and isolate hook-based keyloggers in Windows environments.",
+    tags: ["C++", "WinAPI", "Malware Analysis", "Forensics"],
+    image: "https://images.unsplash.com/photo-1563206767-5b1d972eefab?q=80&w=800&auto=format&fit=crop",
     links: { demo: "#", code: "#" }
   }
 ];
 
-export const MARQUEE_TEXT = "ARTIFICIAL INTELLIGENCE • MACHINE LEARNING • NEURAL NETWORKS • DEEP LEARNING • COMPUTER VISION • NATURAL LANGUAGE PROCESSING • ";
+export const MARQUEE_TEXT = "PENETRATION TESTING • NETWORK SECURITY • CRYPTOGRAPHY • INCIDENT RESPONSE • ETHICAL HACKING • MALWARE ANALYSIS • OSINT • ";
