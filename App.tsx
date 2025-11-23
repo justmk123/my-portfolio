@@ -9,7 +9,7 @@ import CustomCursor from './components/CustomCursor';
 
 const App: React.FC = () => {
   return (
-    <div className="w-full min-h-screen bg-black text-white selection:bg-brand-blue selection:text-black relative">
+    <div className="w-full min-h-screen bg-black text-white selection:bg-brand-blue selection:text-black relative overflow-x-hidden">
       <CustomCursor />
       <CosmosBackground />
       <Header />

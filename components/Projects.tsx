@@ -5,7 +5,7 @@ import ShuffleText from './ShuffleText';
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-24 relative overflow-hidden">
       
       {/* Section Header */}
       <div className="container mx-auto px-6 md:px-12 mb-16 relative z-10">
@@ -94,7 +94,7 @@ const Projects: React.FC = () => {
         ))}
       </div>
       
-      {/* Background decoration */}
+      {/* Background decoration - Now clipped by overflow-hidden */}
       <div className="absolute top-1/2 -left-20 w-64 h-64 bg-brand-blue/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 -right-20 w-80 h-80 bg-brand-blue/5 rounded-full blur-[100px] pointer-events-none" />
 

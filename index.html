@@ -51,19 +51,15 @@
         background-color: #000;
         color: white;
       }
-      /* Custom scrollbar for a techy feel */
+      
+      /* Hide Scrollbar completely but allow scrolling */
+      html {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+      }
+      
       ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #000; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333; 
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #4db5ff; 
+        display: none; /* Chrome, Safari, Opera */
       }
 
       /* Shiny Text Effects */
