@@ -13,13 +13,23 @@ const ShuffleText: React.FC<ShuffleTextProps> = ({ content, className = '', dela
   const intervalRef = useRef<number | null>(null);
   const containerRef = useRef<HTMLSpanElement>(null);
   const hasAnimatedRef = useRef(false);
+  const isMounted = useRef(true);
 
   const startAnimation = () => {
+    // If component unmounted, do not start
+    if (!isMounted.current) return;
+
     let iteration = 0;
     
     if (intervalRef.current) window.clearInterval(intervalRef.current);
 
     intervalRef.current = window.setInterval(() => {
+      // Double check mount status inside interval
+      if (!isMounted.current) {
+         if (intervalRef.current) window.clearInterval(intervalRef.current);
+         return;
+      }
+
       setDisplayText(prev => 
         content
           .split('')
@@ -34,7 +44,7 @@ const ShuffleText: React.FC<ShuffleTextProps> = ({ content, className = '', dela
 
       if (iteration >= content.length) {
         if (intervalRef.current) window.clearInterval(intervalRef.current);
-        setDisplayText(content); 
+        if (isMounted.current) setDisplayText(content); 
       }
 
       iteration += 1 / 3; // Speed of decoding
@@ -42,6 +52,8 @@ const ShuffleText: React.FC<ShuffleTextProps> = ({ content, className = '', dela
   };
 
   useEffect(() => {
+    isMounted.current = true;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -50,7 +62,7 @@ const ShuffleText: React.FC<ShuffleTextProps> = ({ content, className = '', dela
             
             // Trigger animation when element enters viewport
             setTimeout(() => {
-              startAnimation();
+              if (isMounted.current) startAnimation();
             }, delay);
 
             // Stop observing once triggered to prevent re-animation on scroll up
@@ -69,6 +81,7 @@ const ShuffleText: React.FC<ShuffleTextProps> = ({ content, className = '', dela
     }
 
     return () => {
+      isMounted.current = false;
       observer.disconnect();
       if (intervalRef.current) window.clearInterval(intervalRef.current);
     };

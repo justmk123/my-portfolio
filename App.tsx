@@ -5,10 +5,12 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import CosmosBackground from './components/CosmosBackground';
+import CustomCursor from './components/CustomCursor';
 
 const App: React.FC = () => {
   return (
-    <div className="w-full min-h-screen bg-black text-white selection:bg-brand-blue selection:text-black scroll-smooth relative">
+    <div className="w-full min-h-screen bg-black text-white selection:bg-brand-blue selection:text-black relative">
+      <CustomCursor />
       <CosmosBackground />
       <Header />
       <main className="relative z-10">

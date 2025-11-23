@@ -84,10 +84,12 @@ const About: React.FC = () => {
                     <h3 className="font-futuristic font-bold text-2xl mb-8 flex items-center gap-3 shiny-text">
                         <ShuffleText content="Education" />
                     </h3>
-                    <div className="space-y-8 pl-4 border-l-2 border-gray-800 relative">
+                    {/* Consistent pl-6 (24px) + dot offset calculation for alignment */}
+                    <div className="space-y-8 border-l border-gray-800 ml-2 pl-6 relative">
                         {EDUCATION_DATA.map((edu, idx) => (
                             <div key={idx} className="relative group">
-                                <div className="absolute -left-[21px] top-1.5 w-3 h-3 bg-brand-blue rounded-full shadow-[0_0_10px_rgba(77,181,255,0.5)]" />
+                                {/* Dot w-3 (12px). Offset: -24.5 - 6 = -30.5px */}
+                                <div className="absolute -left-[30.5px] top-1.5 w-3 h-3 bg-brand-blue rounded-full shadow-[0_0_10px_rgba(77,181,255,0.5)] border border-black" />
                                 <span className="block font-rajdhani text-sm text-gray-500 mb-1">{edu.period}</span>
                                 <h4 className="font-futuristic font-bold text-lg shiny-text group-hover:text-brand-blue transition-colors">
                                     <ShuffleText content={edu.institution} />
@@ -103,14 +105,14 @@ const About: React.FC = () => {
                     <h3 className="font-futuristic font-bold text-2xl mb-8 shiny-text">
                         <ShuffleText content="Work Experience" />
                     </h3>
-                    <div className="space-y-8 border-l border-gray-800 ml-2 pl-8 relative">
-                         {/* Connecting line overlay */}
+                    <div className="space-y-8 border-l border-gray-800 ml-2 pl-6 relative">
+                         {/* Connecting line overlay - strictly on the border */}
                          <div className="absolute top-0 bottom-0 left-[-1px] w-[1px] bg-gradient-to-b from-brand-blue/50 to-transparent" />
 
                         {EXPERIENCE_DATA.map((exp, idx) => (
                             <div key={idx} className="relative group">
-                                {/* Dot */}
-                                <div className={`absolute -left-[37px] top-1.5 w-2.5 h-2.5 rounded-full border-2 ${exp.current ? 'bg-brand-blue border-brand-blue shadow-[0_0_8px_#4db5ff]' : 'bg-black border-brand-blue'}`} />
+                                {/* Dot w-2.5 (10px). Offset: -24.5 - 5 = -29.5px */}
+                                <div className={`absolute -left-[29.5px] top-1.5 w-2.5 h-2.5 rounded-full border-2 box-border z-10 ${exp.current ? 'bg-brand-blue border-brand-blue shadow-[0_0_8px_#4db5ff]' : 'bg-black border-brand-blue'}`} />
                                 
                                 <span className="block font-rajdhani text-sm text-gray-500 mb-1">{exp.period}</span>
                                 <h4 className="font-futuristic font-bold text-lg shiny-text group-hover:text-brand-blue transition-colors">

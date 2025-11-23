@@ -7,19 +7,27 @@ const Hologram3D: React.FC = () => {
   useEffect(() => {
     if (!mountRef.current) return;
 
+    // Get initial dimensions with safety check
+    let width = mountRef.current.clientWidth || 300; // Fallback to prevent 0
+    let height = mountRef.current.clientHeight || 300;
+
     // --- SETUP SCENE ---
     const scene = new THREE.Scene();
     // No background color, transparency handled by renderer
     
     // Camera
-    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     camera.position.z = 5;
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(500, 500); // Fixed size container
+    renderer.setSize(width, height);
     renderer.setPixelRatio(window.devicePixelRatio);
-    mountRef.current.appendChild(renderer.domElement);
+    
+    // Safety check before appending
+    if (mountRef.current) {
+      mountRef.current.appendChild(renderer.domElement);
+    }
 
     // --- OBJECTS ---
     const group = new THREE.Group();
@@ -69,11 +77,31 @@ const Hologram3D: React.FC = () => {
       mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
     };
 
+    // --- RESIZE HANDLING ---
+    const handleResize = () => {
+      if (!mountRef.current) return;
+      
+      const newWidth = mountRef.current.clientWidth;
+      const newHeight = mountRef.current.clientHeight;
+      
+      // Only update if dimensions changed and are valid
+      if (newWidth > 0 && newHeight > 0 && (width !== newWidth || height !== newHeight)) {
+        width = newWidth;
+        height = newHeight;
+        
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+      }
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
 
     // --- ANIMATION ---
+    let reqId: number;
     const animate = () => {
-      requestAnimationFrame(animate);
+      reqId = requestAnimationFrame(animate);
 
       // Rotations
       core.rotation.y += 0.005;
@@ -104,12 +132,20 @@ const Hologram3D: React.FC = () => {
 
     // --- CLEANUP ---
     return () => {
+      if (reqId) cancelAnimationFrame(reqId);
       window.removeEventListener('mousemove', handleMouseMove);
-      if (mountRef.current) {
+      window.removeEventListener('resize', handleResize);
+      
+      if (mountRef.current && renderer.domElement && renderer.domElement.parentNode === mountRef.current) {
         mountRef.current.removeChild(renderer.domElement);
       }
+      
       geometryCore.dispose();
       materialCore.dispose();
+      geometryPoints.dispose();
+      materialPoints.dispose();
+      geometryRing.dispose();
+      materialRing.dispose();
       renderer.dispose();
     };
   }, []);

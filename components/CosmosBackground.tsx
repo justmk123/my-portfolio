@@ -58,6 +58,7 @@ const CosmosBackground: React.FC = () => {
     }
 
     const init = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       
