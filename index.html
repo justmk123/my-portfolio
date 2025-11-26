@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahmood Khan - Cybersecurity</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind Config -->
     <script>
       tailwind.config = {
         theme: {
@@ -25,17 +40,12 @@
             animation: {
               'marquee': 'marquee 25s linear infinite',
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'scan': 'scan 8s linear infinite',
               'float': 'float 6s ease-in-out infinite',
             },
             keyframes: {
               marquee: {
                 '0%': { transform: 'translateX(0)' },
                 '100%': { transform: 'translateX(-50%)' },
-              },
-              scan: {
-                '0%': { transform: 'translateY(-100%)' },
-                '100%': { transform: 'translateY(100%)' },
               },
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
@@ -46,70 +56,23 @@
         }
       }
     </script>
-    <style>
-      body {
-        background-color: #000;
-        color: white;
-      }
-      
-      /* Hide Scrollbar completely but allow scrolling */
-      html {
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-      }
-      
-      ::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-      }
-
-      /* Shiny Text Effects */
-      @keyframes shine {
-        0% { background-position: 200% center; }
-        100% { background-position: -200% center; }
-      }
-      
-      .shiny-text {
-        background: linear-gradient(120deg, #ffffff 40%, #88ccff 50%, #ffffff 60%);
-        background-size: 200% auto;
-        color: #fff; /* Fallback */
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: shine 6s linear infinite;
-      }
-
-      .shiny-text-blue {
-        background: linear-gradient(120deg, #4db5ff 40%, #ffffff 50%, #4db5ff 60%);
-        background-size: 200% auto;
-        color: #4db5ff; /* Fallback */
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: shine 6s linear infinite;
-      }
-
-      /* Hide default cursor on fine pointer devices (Desktop) */
-      @media (pointer: fine) {
-        body, a, button, input, textarea, select, [role="button"] {
-          cursor: none !important;
-        }
-      }
-    </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
     "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "three": "https://esm.sh/three@0.160.0",
-    "lenis": "https://esm.sh/lenis@1.0.42"
+    "three": "https://aistudiocdn.com/three@^0.181.2",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
   }
 }
 </script>
 </head>
-  <body>
+<body class="bg-black text-white selection:bg-brand-blue selection:text-black overflow-x-hidden relative">
     <div id="root"></div>
-  </body>
+    <script type="module" src="index.tsx"></script>
+</body>
 </html>

@@ -48,10 +48,14 @@ const About: React.FC = () => {
              <div className="relative h-[600px] w-full rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 group shadow-2xl shadow-brand-blue/5">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
                 
-                {/* Image */}
+                {/* Image - Tries to load local 'me.jpg', falls back to placeholder if missing */}
                 <img 
-                    src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1000&auto=format&fit=crop" 
-                    alt="Profile" 
+                    src="/me.jpg" 
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop";
+                      e.currentTarget.onerror = null; // Prevent loop
+                    }}
+                    alt="Mahmood Khan" 
                     className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
                 />
 
