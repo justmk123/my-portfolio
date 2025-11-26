@@ -48,11 +48,11 @@ const About: React.FC = () => {
              <div className="relative h-[600px] w-full rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 group shadow-2xl shadow-brand-blue/5">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
                 
-                {/* Image - Tries to load local 'me.jpg', falls back to placeholder if missing */}
+                {/* Image - Tries to load local 'justkmk.png', falls back to justkmk.png if missing (as requested) */}
                 <img 
-                    src="/me.jpg" 
+                    src="/justkmk.png" 
                     onError={(e) => {
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop";
+                      e.currentTarget.src = "/justkmk.png";
                       e.currentTarget.onerror = null; // Prevent loop
                     }}
                     alt="Mahmood Khan" 
